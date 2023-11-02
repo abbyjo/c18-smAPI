@@ -1,0 +1,31 @@
+{
+  "name": "c18-gen-social-media-api",
+  "version": "1.0.0",
+  "description": "API for social media using mongoDB",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abbyjo/c18-smAPI.git"
+  },
+  "keywords": [
+    "mongoDB",
+    "API",
+    "express",
+    "node"
+  ],
+  "author": "Abby Johnson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/abbyjo/c18-smAPI/issues"
+  },
+  "homepage": "https://github.com/abbyjo/c18-smAPI#readme",
+  "dependencies": {
+    "dayjs": "^1.11.10",
+    "express": "^4.18.2",
+    "mongoose": "^8.0.0"
+  }
+}
