@@ -16,6 +16,9 @@ router.route('/').get(getThoughts).post(createThought);
 router.route('/:thoughtId').get(oneThought).put(updateThought).delete(deleteThought);
 
 // "api/thoughts/:thoughtId/reactions" - Routes to create or remove a reaction to a single thought
-router.route(':thoughtId/reactions').post(createReaction).delete(removeReaction)
+router.route('/:thoughtId/reactions').post(createReaction)
+
+// "api/thoughts/:thoughtID/reactions/:reactionId"
+router.route('/:thoughtId/reactions/:reactionId').delete(removeReaction)
 
 module.exports = router;
