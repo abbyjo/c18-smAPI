@@ -7,7 +7,8 @@ async function getThoughts(req, res) {
         const allThought = await Thoughts.find();
         res.status(200).json(allThought)
     } catch (err) {
-        res.status(500).json(err)
+        res.status(500).json(err);
+        console.log(err)
     }
 };
 
@@ -97,7 +98,7 @@ async function removeReaction(req, res) {
     try {
         const myReaction = await Thoughts.findOneAndUpdate(
             { _id: req.params.thoughtId },
-            { $pull: {reactions: req.params.reactionId }},
+            { $pull: {reactions: {reactionId: req.params.reactionId} }},
             { runValidators: true, new: true }
         )
 

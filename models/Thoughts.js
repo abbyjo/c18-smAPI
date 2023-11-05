@@ -1,5 +1,7 @@
-const { Schema, model } = require('mongoose');
+const { Schema, model, Types } = require('mongoose');
+const dayjs = require('dayjs');
 
+// Schema for reaction subdocs
 const reactionSchema = new Schema(
     {
         reactionId: {
@@ -17,7 +19,8 @@ const reactionSchema = new Schema(
         },
         createdAt: {
             type: Date,
-            default: Date.now
+            default: Date.now,
+            get: (date) => dayjs(date).format('MMM,DD YYYY [at] hh:mmA')
         }
     },
     {
@@ -27,6 +30,7 @@ const reactionSchema = new Schema(
     }
 );
 
+// Schema for Thoughts 
 const thoughtSchema = new Schema(
     {
         thoughtText: {
@@ -38,6 +42,7 @@ const thoughtSchema = new Schema(
         createdAt: {
             type: Date,
             default: Date.now,
+            get: (date) => dayjs(date).format('MMM,DD YYYY [at] hh:mmA')
         },
         username: {
             type: String,
