@@ -1,5 +1,4 @@
 const Thoughts = require('../models/Thoughts');
-const User = require('../models/User');
 
 // Function to get all thoughts 
 async function getThoughts(req, res) {
@@ -73,19 +72,39 @@ async function deleteThought(req, res) {
     }
 }
 
-
+// Function to create new reaction for associated thought
 async function createReaction(req, res) {
     try {
-        
+        const freshReaction = await Thoughts.findOneAndUpdate(
+            { _id: req.params.thoughtId },
+            { $push: {reactions: req.body }},
+            { runValidators: true, new: true }
+        );
+
+        if (!freshReaction) {
+            res.statys(404).json({ message: "No thought with that ID was found, please try again!"})
+        }
+
+        res.json({ message: "Reaction created successfully!", freshReaction})
     } catch (err) {
         res.status(500).json(err)
     }
-}
+};
 
-
+// Function to remove reaction by ID 
 async function removeReaction(req, res) {
     try {
+        const myReaction = await Thoughts.findOneAndUpdate(
+            { _id: req.params.thoughtId },
+            { $pull: {reactions: req.body.reactionId }},
+            { runValidators: true, new: true }
+        )
 
+        if (!myReaction){
+            res.status(404).json({ message: "No thought with that ID was found, please try again!" })
+        }
+
+        res.json({message: "Reaction deleted successfully!", myReaction})
     } catch (err) {
         res.status(500).json(err)
     }
