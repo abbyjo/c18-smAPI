@@ -12,7 +12,7 @@ Download the files onto your computer. Using node or npm install all dependencie
 
 In your local environment run the command ```npm start``` to boot up the server on your device. Then, with the server live and listening, you can use either your browser or an API platform (such as Postman or Insomnia) to send requests to the server directly! This API allows you to create, update, read and delete data associated with individual users, their "thoughts", "reactions" and their associated friends!
 
-[Here is a video showcasing the API's functionality.]()
+[Here is a video showcasing the API's functionality.](https://drive.google.com/file/d/1ySTgcmCsmdxc5-Sg5N18oHt4KTwQGcrB/view)
 
 
 ## Technologies
